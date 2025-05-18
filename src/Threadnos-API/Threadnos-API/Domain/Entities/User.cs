@@ -14,6 +14,8 @@ namespace Threadnos_API.Domain.Entities
         public DateTime LastLogin { get; set; }
         public bool IsActive { get; set; }
         public bool IsVerified { get; set; }
-
+        public List<Thread>? Threads { get; set; }
+        public List<Label>? Labels { get; set; }
+        
     }
 }
