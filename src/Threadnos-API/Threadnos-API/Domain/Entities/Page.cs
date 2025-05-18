@@ -12,6 +12,8 @@ namespace Threadnos_API.Domain.Entities
         public DateTime UpdateAt { get; set; }
         public bool IsDeleted { get; set; }
         public Guid ContentId { get; private set; }
+        public string? Content {  get; set; }
+        public int Order {  get; set; }
 
     }
 }
