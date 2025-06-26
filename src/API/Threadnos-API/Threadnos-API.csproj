@@ -24,13 +24,11 @@
 
   <ItemGroup>
     <Folder Include="Domain\Enums\" />
-    <Folder Include="Domain\Services\Abstraction\" />
-    <Folder Include="Domain\Services\Implementation\" />
     <Folder Include="Domain\ValueObjects\" />
-    <Folder Include="Domain\Services\" />
     <Folder Include="Infrastructure\Integrations\" />
     <Folder Include="Infrastructure\Common\" />
     <Folder Include="Infrastructure\Persistence\Migrations\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
