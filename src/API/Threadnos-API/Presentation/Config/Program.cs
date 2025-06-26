@@ -4,6 +4,8 @@ using Threadnos_API.Application.Mappings;
 using Threadnos_API.Application.Services.Abstraction;
 using Threadnos_API.Application.Services.Implementation;
 using Threadnos_API.Domain.IRepositories;
+using Threadnos_API.Domain.Services.Abstraction;
+using Threadnos_API.Domain.Services.Implementation;
 using Threadnos_API.Infrastructure.Persistence;
 using Threadnos_API.Infrastructure.Persistence.Repositories;
 using Threadnos_API.Presentation.Middleware.YourNamespace.Middlewares;
@@ -29,6 +31,8 @@ builder.Services.AddSingleton(new MapperConfiguration(cfg =>
 builder.Services.AddScoped<IThreadlineService, ThreadlineService>();
 
 builder.Services.AddScoped<IThreadlineRepository, ThreadlineRepository>();
+
+builder.Services.AddScoped<IThreadlineDomainService, ThreadlineDomainService>();
 
 
 var app = builder.Build();

@@ -5,7 +5,7 @@ using Threadnos_API.Application.Services.Abstraction;
 namespace Threadnos_API.Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("threadline")]
     public class ThreadlineController : ControllerBase
     {
         private readonly IThreadlineService _threadlineService;
@@ -14,10 +14,22 @@ namespace Threadnos_API.Presentation.Controllers
 
             _threadlineService = threadlineService;
         }
-        [HttpGet]
-        public async Task<ThreadlineDto> ThreadlineById(Guid id)
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ThreadlineDto>> ThreadlineById(Guid id)
         {
-            return await _threadlineService.GetThreadlineById(id);
+            ThreadlineDto threadline = await _threadlineService.GetThreadlineById(id);
+            
+            return Ok(threadline);
+        }
+
+        [HttpGet("/users/{id}/threadlines")]
+        public async Task<PagedResult<ThreadlineDto>> ThreadlinesByUserId(Guid id)
+        {
+            PagedResult<ThreadlineDto> threadlines = await _threadlineService.GetThreadlinesByUserId(id);
+
+            return threadlines;
         }
     }
 }

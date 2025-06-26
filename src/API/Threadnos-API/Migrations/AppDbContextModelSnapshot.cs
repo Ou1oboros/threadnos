@@ -213,7 +213,7 @@ namespace Threadnos_API.Migrations
             modelBuilder.Entity("Threadnos_API.Domain.Entities.Threadline", b =>
                 {
                     b.HasOne("Threadnos_API.Domain.Entities.User", null)
-                        .WithMany("Threadline")
+                        .WithMany("Threadlines")
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_threadline_users_user_id");
                 });
@@ -229,7 +229,7 @@ namespace Threadnos_API.Migrations
                 {
                     b.Navigation("Labels");
 
-                    b.Navigation("Threadline");
+                    b.Navigation("Threadlines");
                 });
 #pragma warning restore 612, 618
         }

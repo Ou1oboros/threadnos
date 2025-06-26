@@ -12,7 +12,7 @@ using Threadnos_API.Infrastructure.Persistence;
 namespace Threadnos_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250626145016_Init")]
+    [Migration("20250626234407_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -216,7 +216,7 @@ namespace Threadnos_API.Migrations
             modelBuilder.Entity("Threadnos_API.Domain.Entities.Threadline", b =>
                 {
                     b.HasOne("Threadnos_API.Domain.Entities.User", null)
-                        .WithMany("Threadline")
+                        .WithMany("Threadlines")
                         .HasForeignKey("UserId")
                         .HasConstraintName("fk_threadline_users_user_id");
                 });
@@ -232,7 +232,7 @@ namespace Threadnos_API.Migrations
                 {
                     b.Navigation("Labels");
 
-                    b.Navigation("Threadline");
+                    b.Navigation("Threadlines");
                 });
 #pragma warning restore 612, 618
         }
