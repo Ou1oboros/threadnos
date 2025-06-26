@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Threadnos_API</RootNamespace>
+    <UserSecretsId>81adaffe-ae00-42fd-a67b-21e1cea69727</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="EFCore.NamingConventions" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Enums\" />
+    <Folder Include="Domain\Services\Abstraction\" />
+    <Folder Include="Domain\Services\Implementation\" />
+    <Folder Include="Domain\ValueObjects\" />
+    <Folder Include="Domain\Services\" />
+    <Folder Include="Infrastructure\Integrations\" />
+    <Folder Include="Infrastructure\Common\" />
+    <Folder Include="Infrastructure\Persistence\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="..\.dockerignore" Link="Presentation\Config\.dockerignore" />
+  </ItemGroup>
+
+</Project>
