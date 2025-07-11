@@ -36,5 +36,11 @@ namespace Threadnos_API.Infrastructure.Persistence.Repositories
 
             return threadlines;
         }
+
+        public async Task<Threadline?> InsertThreadlineAsync(Guid id, Threadline threadline)
+        {
+            
+            throw new NotImplementedException();    
+        }
     }
 }

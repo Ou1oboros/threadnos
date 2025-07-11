@@ -1,5 +1,5 @@
-﻿namespace Threadnos_API.Application.Contracts
-{
+﻿namespace Threadnos_API.Shared.Common;
+
     public class PagedResult<T>
     {        
         public IReadOnlyList<T>? Items { get; init; }
@@ -16,4 +16,4 @@
             PageSize = pageSize;
         }
     }
-}
+

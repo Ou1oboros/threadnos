@@ -1,5 +1,5 @@
-﻿namespace Threadnos_API.Presentation.Contracts
-{
+﻿namespace Threadnos_API.Shared.Common;
+
     public class ErrorResponse
     {
         public int StatusCode { get; init; }
@@ -11,4 +11,4 @@
             Message = message;
         }
     }
-}
+

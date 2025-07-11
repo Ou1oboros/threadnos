@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Threadnos_API.Application.Contracts;
 using Threadnos_API.Application.Services.Abstraction;
+using Threadnos_API.Shared.Common;
 
 namespace Threadnos_API.Presentation.Controllers
 {
@@ -31,5 +32,27 @@ namespace Threadnos_API.Presentation.Controllers
 
             return threadlines;
         }
+
+        [HttpPost("/users/{id}/threadlines")]
+        public async Task<ActionResult> InsertThreadLine(Guid id, [FromBody] CreateThreadlineDto createThreadlineDto)
+        {
+            var response = await _threadlineService.InsertThreadline(id, createThreadlineDto);
+
+            return CreatedAtAction(nameof(ThreadlineById), new { id = id }, response);
+        }
+        
+        //delete thread
+
+        //rename thread
+
+        //add page
+
+        //remove page
+
+        //add label
+
+        //remove label
+
+
     }
 }

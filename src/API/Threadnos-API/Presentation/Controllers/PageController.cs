@@ -1,6 +1,10 @@
-﻿namespace Threadnos_API.Presentation.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Threadnos_API.Presentation.Controllers
 {
-    public class PageController
+    [ApiController]
+    [Route("page")]
+    public class PageController : ControllerBase
     {
     }
 }
