@@ -27,8 +27,6 @@
     <Folder Include="Domain\ValueObjects\" />
     <Folder Include="Infrastructure\Integrations\" />
     <Folder Include="Infrastructure\Common\" />
-    <Folder Include="Infrastructure\Persistence\Migrations\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

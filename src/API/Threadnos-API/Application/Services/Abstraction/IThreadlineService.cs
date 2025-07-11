@@ -1,4 +1,5 @@
 ﻿using Threadnos_API.Application.Contracts;
+using Threadnos_API.Shared.Common;
 
 namespace Threadnos_API.Application.Services.Abstraction
 {
@@ -6,5 +7,7 @@ namespace Threadnos_API.Application.Services.Abstraction
     {
         Task<ThreadlineDto> GetThreadlineById(Guid id);
         Task<PagedResult<ThreadlineDto>> GetThreadlinesByUserId(Guid id);
+        
+        Task<PreviewThreadlineDto> InsertThreadline(Guid id, CreateThreadlineDto threadline);
     }
 }

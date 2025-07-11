@@ -5,6 +5,7 @@ using Threadnos_API.Application.Services.Abstraction;
 using Threadnos_API.Domain.Entities;
 using Threadnos_API.Domain.IRepositories;
 using Threadnos_API.Domain.Services.Abstraction;
+using Threadnos_API.Shared.Common;
 
 namespace Threadnos_API.Application.Services.Implementation
 {
@@ -44,6 +45,20 @@ namespace Threadnos_API.Application.Services.Implementation
             PagedResult<ThreadlineDto> result = new PagedResult<ThreadlineDto>(threadlinesDto, threadlinesDto.Count);
             
             return result;
+        }
+        
+        public async Task<PreviewThreadlineDto> InsertThreadline(Guid id, CreateThreadlineDto createThreadlineDto)
+        {
+            var threadline = _mapper.Map<Threadline>(createThreadlineDto);
+            
+            var response = await _threadlineRepository.InsertThreadlineAsync(id, threadline);
+
+            if (response == null)
+                throw new BadRequestException("Unable to insert threadline");
+            
+            PreviewThreadlineDto previewThreadlineDto = _mapper.Map<PreviewThreadlineDto>(response);
+            
+            return previewThreadlineDto;
         }
     }
 }

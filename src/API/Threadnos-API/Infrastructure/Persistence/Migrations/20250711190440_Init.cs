@@ -16,12 +16,17 @@ namespace Threadnos_API.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
+                    auth_provider_user_id = table.Column<string>(type: "text", nullable: false),
+                    email = table.Column<string>(type: "text", nullable: false),
                     name = table.Column<string>(type: "text", nullable: false),
-                    create_at = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    update_at = table.Column<DateTime>(type: "timestamp", nullable: false),
                     last_login = table.Column<DateTime>(type: "timestamp", nullable: false),
                     is_active = table.Column<bool>(type: "boolean", nullable: false),
-                    is_verified = table.Column<bool>(type: "boolean", nullable: false)
+                    is_verified = table.Column<bool>(type: "boolean", nullable: false),
+                    created_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    created_by = table.Column<string>(type: "text", nullable: true),
+                    updated_by = table.Column<string>(type: "text", nullable: true),
+                    is_deleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,10 +39,12 @@ namespace Threadnos_API.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     name = table.Column<string>(type: "text", nullable: false),
-                    create_at = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    update_at = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    is_deleted = table.Column<bool>(type: "boolean", nullable: false),
-                    user_id = table.Column<Guid>(type: "uuid", nullable: true)
+                    user_id = table.Column<Guid>(type: "uuid", nullable: true),
+                    created_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    created_by = table.Column<string>(type: "text", nullable: true),
+                    updated_by = table.Column<string>(type: "text", nullable: true),
+                    is_deleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,11 +62,13 @@ namespace Threadnos_API.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     name = table.Column<string>(type: "text", nullable: false),
-                    create_at = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    update_at = table.Column<DateTime>(type: "timestamp", nullable: false),
                     is_deleted = table.Column<bool>(type: "boolean", nullable: false),
                     threadline_id = table.Column<Guid>(type: "uuid", nullable: true),
-                    user_id = table.Column<Guid>(type: "uuid", nullable: true)
+                    user_id = table.Column<Guid>(type: "uuid", nullable: true),
+                    created_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    created_by = table.Column<string>(type: "text", nullable: true),
+                    updated_by = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -82,13 +91,15 @@ namespace Threadnos_API.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     title = table.Column<string>(type: "text", nullable: true),
-                    create_at = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    update_at = table.Column<DateTime>(type: "timestamp", nullable: false),
-                    is_deleted = table.Column<bool>(type: "boolean", nullable: false),
                     content_id = table.Column<Guid>(type: "uuid", nullable: false),
                     content = table.Column<string>(type: "text", nullable: true),
                     order = table.Column<int>(type: "integer", nullable: false),
-                    threadline_id = table.Column<Guid>(type: "uuid", nullable: true)
+                    threadline_id = table.Column<Guid>(type: "uuid", nullable: true),
+                    created_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    created_by = table.Column<string>(type: "text", nullable: true),
+                    updated_by = table.Column<string>(type: "text", nullable: true),
+                    is_deleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
