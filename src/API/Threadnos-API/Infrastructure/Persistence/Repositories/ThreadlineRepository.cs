@@ -36,6 +36,12 @@ namespace Threadnos_API.Infrastructure.Persistence.Repositories
 
             return threadlines;
         }
+        
+        public async Task InsertUserAsync() {
+
+            await _context.Users.AddAsync(new User("User1", "User1@example.com"));
+            
+        }
 
         public async Task<Threadline?> InsertThreadlineAsync(Guid id, Threadline threadline)
         {

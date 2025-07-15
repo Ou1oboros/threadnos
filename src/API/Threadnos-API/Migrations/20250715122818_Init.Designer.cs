@@ -12,7 +12,7 @@ using Threadnos_API.Infrastructure.Persistence;
 namespace Threadnos_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250711190440_Init")]
+    [Migration("20250715122818_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -88,7 +88,7 @@ namespace Threadnos_API.Migrations
                         .HasColumnType("text")
                         .HasColumnName("content");
 
-                    b.Property<Guid>("ContentId")
+                    b.Property<Guid?>("ContentId")
                         .HasColumnType("uuid")
                         .HasColumnName("content_id");
 
@@ -186,7 +186,6 @@ namespace Threadnos_API.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("AuthProviderUserId")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("auth_provider_user_id");
 

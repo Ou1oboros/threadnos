@@ -4,11 +4,11 @@ namespace Threadnos_API.Domain.Entities
 {
     public class User : BaseEntity
     {
-        public string AuthProviderUserId { get; set; } = null!; 
+        public string Name { get; set; }
         
-        public string Email { get; set; } = null!;
+        public string? AuthProviderUserId { get; set; } 
         
-        public required string Name { get; set; }
+        public string Email { get; set; }
         
         [Column(TypeName = "timestamp")]
         public DateTime LastLogin { get; set; }
@@ -20,6 +20,19 @@ namespace Threadnos_API.Domain.Entities
         public List<Threadline>? Threadlines { get; set; }
         
         public List<Label>? Labels { get; set; }
+
+        public User(string name, string email)
+        {
+            Name = name;
+            Email = email;
+        }
+
+        public User()
+        {
+            
+        }
+
+        
         
     }
 }
