@@ -6,11 +6,15 @@ namespace Threadnos_API.Domain.Entities
     {
         public string? Title { get; set; }
 
-        public Guid ContentId { get; private set; }
+        public Guid? ContentId { get; private set; }
         
         public string? Content {  get; set; }
         
         public int Order {  get; set; }
+        
+        public Page()
+        {
+        }
 
     }
 }

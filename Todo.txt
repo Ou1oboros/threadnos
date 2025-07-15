@@ -1,0 +1,1 @@
+use Directory.Build.props file to change default behavior of dotnet ef migraitons add or remove or script to --output dire 

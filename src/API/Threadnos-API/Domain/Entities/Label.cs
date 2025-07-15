@@ -4,9 +4,16 @@ namespace Threadnos_API.Domain.Entities
 {
     public class Label : BaseEntity
     {
-        public required string Name { get; set; }
+        public string Name { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public Label(string name)
+        {
+            Name = name;
+        }
 
-    }
+        public Label()
+        {
+        }
+
+}
 }

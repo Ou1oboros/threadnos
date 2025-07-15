@@ -2,6 +2,6 @@
 {
     public class CreateThreadlineDto
     {
-        public required string Name { get; set; }
+        public string Name { get; set; }
     }
 }
