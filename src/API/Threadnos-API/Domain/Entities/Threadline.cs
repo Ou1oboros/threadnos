@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using Threadnos_API.Shared;
 
 namespace Threadnos_API.Domain.Entities
 {
     public class Threadline : BaseEntity
     {
+        [MaxLength(ValidationConstants.ThreadlineNameMaxLength)]
         public string Name { get; set; }
         
         public List<Page>? Pages { get; set; }
