@@ -13,7 +13,7 @@ namespace Threadnos_API.Domain.Entities
         [MaxLength(ValidationConstants.ContentMaxLength)]
         public string? Content {  get; set; }
         
-        public int Order {  get; set; }
+        public int SortOrder {  get; set; }
         
         public Page()
         {
