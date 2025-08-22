@@ -21,28 +21,48 @@ def seed_user():
     insert_query = "INSERT INTO users (id, created_at, updated_at, is_deleted, name, is_active, last_login)" \
     "VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, name, isActive, lastLogin))
+
+    userId = id
+    for i in range(10):
+        base_entity()
+        seed_threadline(userId)
     
-def seed_label():
+    
+def seed_label(userId, threadlineId):
 
     name = fake.word()
-    insert_query = "INSERT INTO labels (id, created_at, updated_at, is_deleted, name)" \
-    "VALUES (%s, %s, %s, %s, %s)"
-    cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, name))
+    insert_query = "INSERT INTO labels (id, created_at, updated_at, is_deleted, name, user_id, threadline_id)" \
+    "VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, name, userId, threadlineId))
 
-def seed_page(order):
+    for i in range(10):
+        base_entity()
+        seed_page(i, threadlineId)
+    
+
+def seed_page(order, threadlineId):
     title = fake.sentence(4, True)
     contentId = str(uuid.uuid4())
     content = fake.text()
     sortOrder = order
-    insert_query = "INSERT INTO pages (id, created_at, updated_at, is_deleted, title, content_id, content, sort_order)" \
-    "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-    cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, title, contentId, content, sortOrder))
 
-def seed_threadline():
+    insert_query = "INSERT INTO pages (id, created_at, updated_at, is_deleted, title, content_id, content, sort_order, threadline_id)" \
+    "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, title, contentId, content, sortOrder, threadlineId))
+
+def seed_threadline(userId):
     name = fake.sentence(4, True)
-    insert_query = "INSERT INTO threadline (id, created_at, updated_at, is_deleted, name)" \
-    "VALUES (%s, %s, %s, %s, %s)"
-    cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, name))
+
+    insert_query = "INSERT INTO threadline (id, created_at, updated_at, is_deleted, name, user_id)" \
+    "VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor.execute(insert_query, (id, createdAt, updatedAt, isDeleted, name, userId))
+
+    threadlineId = id
+
+    for i in range(10):
+        base_entity()
+        seed_label(userId, threadlineId)
+
 
 
 
@@ -66,17 +86,10 @@ try:
         base_entity()
         seed_user()
 
-    for i in range(10):
-        base_entity()
-        seed_label()
 
-    for i in range(10):
-        base_entity()
-        seed_page(i)
+    
 
-    for i in range(10):
-        base_entity()
-        seed_threadline()
+    
 
 
     conn.commit()
